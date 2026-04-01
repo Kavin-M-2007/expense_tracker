@@ -2,6 +2,9 @@
     --color--log: #a41bff;
     --color-txt: #2b2525;
     --color-entrylbl: #0c4620;
+    --table-header: #6a5cff;
+    --row-even: #f2f2ff;
+    --row-odd: #ffffff;
 }
 
 body{
@@ -23,31 +26,50 @@ body{
 }
 
 .content {
-    padding: 2%;
+    padding: 1%;
 }
 
+/* Table container */
 .st_table {
-    width: 95%;
-    margin-top: 10px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.st_table table {
-    margin-right: auto;
-    margin-left: auto;
     width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
 }
 
-.st_table table, .st_table td,.st_table table th {
-    border: 1px solid gray;
+/* Table */
+.st_table table {
+    width: 100%;
     border-collapse: collapse;
-    height: 25px;
+    border-spacing: 0;
+}
+
+/* Cells */
+.st_table th,
+.st_table td {
+    border: 1px solid gray;
+    height: 28px;
     font-size: 14px;
     text-align: center;
     font-weight: bold;
+    padding: 4px;
 }
 
-.st_table table th {
-    font-size: 15px;
+/* Sticky header with no gap */
+.st_table thead th {
+    background-color: var(--table-header);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Alternate rows */
+.st_table tbody tr:nth-child(even) {
+    background-color: var(--row-even);
+}
+
+.st_table tbody tr:nth-child(odd) {
+    background-color: var(--row-odd);
 }
